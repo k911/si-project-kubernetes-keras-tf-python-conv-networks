@@ -17,7 +17,6 @@ spec:
       containers:
         - name: image-service-resnet50
           image: 'k911/si-image-service-resnet50:dev'
-          imagePullPolicy: Always
           env:
             - name: FLASK_ENV
               value: production

@@ -18,15 +18,13 @@ Running via `minikube`:
         ```bash
         $ eval $(minikube docker-env)
         ```
-    3. (Optional) Build Docker images
-
-        **Remarks**: Unless you made changes in Dockerfiles or know what you're doing, it is recommended to omit this step, because it can take long time. Kubernetes can download Docker images from registry (Docker Hub) automatically.
+    3. Build Docker images
 
         ```bash
+        # pull build images (it can take some time, but it is faster, than building without cache)
+        $ docker-compose pull
         # build all images
         $ docker-compose build
-        # or chosen ones
-        $ docker-compose build aggregator-service image-service-resnet50
         ```
 
         Info: In case you run out of memory while building image service (eg. vgg19), skip it in whole process
@@ -68,14 +66,14 @@ Running via `minikube`:
         $ kubectl apply -f kubernetes/image-service-inceptv3
         ```
 
-        Info: Deploying all services on local computer escpecially with many replicas can cause issues, so it is not recommended
+        Info: Deploying all services on local computer escpecially with many replicas can cause performance issues, so it is not recommended
 
     10. (Optionally) Point image services to local minikube domain:
         ```bash
         $ echo "$(minikube ip) image-service-resnet50.minikube image-service-vgg19.minikube image-service-xceptv1.minikube image-service-inceptv3.minikube" | sudo tee -a /etc/hosts
         ```
 
-        Info: You can use image services via aggregator without exposing them to the world by disabling their ingress controllers
+        Info: You can use image services via aggregator without exposing them to the world by disabling their ingresses
 
 - Available services:
     - [Aggregator Service](https://aggregator-service.minikube)

@@ -17,7 +17,6 @@ spec:
       containers:
         - name: image-service-vgg19
           image: 'k911/si-image-service-vgg19:dev'
-          imagePullPolicy: Always
           env:
             - name: FLASK_ENV
               value: production

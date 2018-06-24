@@ -17,7 +17,6 @@ spec:
       containers:
         - name: aggregator-service
           image: 'k911/si-aggregator-service:dev'
-          imagePullPolicy: Always
           env:
             - name: FLASK_ENV
               value: production

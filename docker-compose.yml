@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 
 services:
   reverse-proxy:
@@ -17,6 +17,8 @@ services:
     restart: always
     build:
       context: ./aggregator-service
+      cache_from:
+        - k911/si-aggregator-service:dev
     image: k911/si-aggregator-service:dev
     volumes:
       - ./aggregator-service/src:/usr/src/main/src
@@ -38,6 +40,8 @@ services:
     restart: always
     build:
       context: ./image-service
+      cache_from:
+        - k911/si-image-service-resnet50:dev
       args:
         - APP_MODEL=resnet50
     image: k911/si-image-service-resnet50:dev
@@ -57,6 +61,8 @@ services:
     restart: always
     build:
       context: ./image-service
+      cache_from:
+        - k911/si-image-service-vgg19:dev
       args:
         - APP_MODEL=vgg19
     image: k911/si-image-service-vgg19:dev
@@ -76,6 +82,8 @@ services:
     restart: always
     build:
       context: ./image-service
+      cache_from:
+        - k911/si-image-service-xceptv1:dev
       args:
         - APP_MODEL=xceptv1
     image: k911/si-image-service-xceptv1:dev
@@ -95,6 +103,8 @@ services:
     restart: always
     build:
       context: ./image-service
+      cache_from:
+        - k911/si-image-service-inceptv3:dev
       args:
         - APP_MODEL=inceptv3
     image: k911/si-image-service-inceptv3:dev
