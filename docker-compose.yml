@@ -17,7 +17,7 @@ services:
     restart: always
     build:
       context: ./aggregator-service
-    image: aggregator-service:dev
+    image: k911/si-aggregator-service:dev
     volumes:
       - ./aggregator-service/src:/usr/src/main/src
     labels:
@@ -40,7 +40,7 @@ services:
       context: ./image-service
       args:
         - APP_MODEL=resnet50
-    image: image-service-resnet50:dev
+    image: k911/si-image-service-resnet50:dev
     volumes:
       - ./image-service/src:/usr/src/main/src
     labels:
@@ -59,7 +59,7 @@ services:
       context: ./image-service
       args:
         - APP_MODEL=vgg19
-    image: image-service-vgg19:dev
+    image: k911/si-image-service-vgg19:dev
     volumes:
       - ./image-service/src:/usr/src/main/src
     labels:
@@ -78,7 +78,7 @@ services:
       context: ./image-service
       args:
         - APP_MODEL=xceptv1
-    image: image-service-xceptv1:dev
+    image: k911/si-image-service-xceptv1:dev
     volumes:
       - ./image-service/src:/usr/src/main/src
     labels:
@@ -97,7 +97,7 @@ services:
       context: ./image-service
       args:
         - APP_MODEL=inceptv3
-    image: image-service-inceptv3:dev
+    image: k911/si-image-service-inceptv3:dev
     volumes:
       - ./image-service/src:/usr/src/main/src
     labels:

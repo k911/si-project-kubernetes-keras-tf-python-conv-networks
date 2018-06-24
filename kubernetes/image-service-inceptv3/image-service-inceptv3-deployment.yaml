@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: image-service-inceptv3
-          image: 'image-service-inceptv3:dev'
+          image: 'k911/si-image-service-inceptv3:dev'
+          imagePullPolicy: Always
           env:
             - name: FLASK_ENV
               value: production

@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: image-service-xceptv1
-          image: 'image-service-xceptv1:dev'
+          image: 'k911/si-image-service-xceptv1:dev'
+          imagePullPolicy: Always
           env:
             - name: FLASK_ENV
               value: production

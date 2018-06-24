@@ -18,7 +18,10 @@ Running via `minikube`:
         ```bash
         $ eval $(minikube docker-env)
         ```
-    3. Build images
+    3. (Optional) Build Docker images
+
+        **Remarks**: Unless you made changes in Dockerfiles or know what you're doing, it is recommended to omit this step, because it can take long time. Kubernetes can download Docker images from registry (Docker Hub) automatically.
+
         ```bash
         # build all images
         $ docker-compose build
@@ -26,7 +29,7 @@ Running via `minikube`:
         $ docker-compose build aggregator-service image-service-resnet50
         ```
 
-        Info: In case you may run out of memory skip while building image service (eg. vgg19) skip it in whole process
+        Info: In case you run out of memory while building image service (eg. vgg19), skip it in whole process
 
     4. Generate self-signed TLS certificate
         ```bash
